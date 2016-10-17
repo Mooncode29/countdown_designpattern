@@ -1,0 +1,18 @@
+#minutes {
+	font-size: 100px;
+	color : #0080ff;
+
+	
+
+}
+#secondes {
+	font-size : 100px;
+	color : #0080ff;
+	
+}
+.chrono {
+	text-align: center;
+}
+.boutons {
+	text-align: center;
+}
