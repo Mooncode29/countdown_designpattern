@@ -1,19 +1,10 @@
-#minutes {
-	font-size: 80px;
-	color : #0080ff;
 
-	
 
-}
-#secondes {
-	font-size : 80px;
-	color : #0080ff;
-	
-}
 .chrono {
 	text-align: center;
+	font-size : 50px;
+	color : #0080ff;
 
-	
 }
 #start{
 	

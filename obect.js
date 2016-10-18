@@ -4,7 +4,7 @@ console.log(this.document === document);
 
 (function(){
 	var app = {
-		defaultTimer :5,
+		defaultTimer : 3800,
 		timer : null,
 		intervalID : null,
 		init : function(){
@@ -36,8 +36,9 @@ console.log(this.document === document);
 		},
 
 		updateView : function(){
-			
-			var minutes = parseInt(this.timer/60, 10);
+			var heures = parseInt(this.timer/3600, 10);
+			var minutes = parseInt((this.timer % 3600)/60, 10);
+			console.log(minutes);
 			var secondes = parseInt(this.timer % 60, 10);
 			if(minutes < 10){
 				minutes = '0'+ minutes; 
@@ -45,8 +46,12 @@ console.log(this.document === document);
 			if(secondes < 10){
 				secondes = '0' + secondes;
 			}
-			$('#minutes').html(minutes);
+			if(heures < 10){
+				heures = '0' + heures;
+			}
+			$('#minutes').html(minutes + ':');
 			$('#secondes').html(secondes);
+			$('#heures').html(heures + ':');
 		},
 
 		reset : function(){
