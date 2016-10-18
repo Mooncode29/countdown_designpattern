@@ -1,18 +1,54 @@
 #minutes {
-	font-size: 100px;
+	font-size: 80px;
 	color : #0080ff;
 
 	
 
 }
 #secondes {
-	font-size : 100px;
+	font-size : 80px;
 	color : #0080ff;
 	
 }
 .chrono {
 	text-align: center;
+
+	
 }
-.boutons {
-	text-align: center;
+#start{
+	
+	
+	width:80px;
+	line-height:30px;
+	text-align:center;
+	vertical-align:middle;
+	background:#52616a;
+	color:white;
+	text-decoration:none;
+}
+#reset{
+	
+	width:80px;
+	line-height:30px;
+	text-align:center;
+	vertical-align:middle;
+	background:#52616a;
+	color:white;
+	text-decoration:none;
+
+}
+#stop{
+	
+	width:80px;
+	line-height:30px;
+	text-align:center;
+	vertical-align:middle;
+	background:#52616a;
+	color:white;
+	text-decoration:none;
+}
+.boutons{
+	display: flex;
+	justify-content: center;
+
 }
