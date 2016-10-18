@@ -6,18 +6,8 @@
 	color : #0080ff;
 
 }
-#start{
-	
-	
-	width:80px;
-	line-height:30px;
-	text-align:center;
-	vertical-align:middle;
-	background:#52616a;
-	color:white;
-	text-decoration:none;
-}
-#reset{
+
+.btn {
 	
 	width:80px;
 	line-height:30px;
@@ -28,18 +18,23 @@
 	text-decoration:none;
 
 }
-#stop{
-	
-	width:80px;
-	line-height:30px;
-	text-align:center;
-	vertical-align:middle;
-	background:#52616a;
-	color:white;
-	text-decoration:none;
-}
 .boutons{
 	display: flex;
 	justify-content: center;
+	margin-bottom: 5%;
+}
+#barre {
+	width: 450px;
+	height : 20px;
+	background-color: grey;
+	margin-top : 50%;
+	margin: 0 auto;
+	
+}
+#progress{
+	height: 20px;
+	width: 100%;
+	background-color: blue;
+	
 
 }

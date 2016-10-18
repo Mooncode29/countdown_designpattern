@@ -4,7 +4,7 @@ console.log(this.document === document);
 
 (function(){
 	var app = {
-		defaultTimer : 3800,
+		defaultTimer : 10,
 		timer : null,
 		intervalID : null,
 		init : function(){
@@ -24,6 +24,7 @@ console.log(this.document === document);
 
 		decrementation : function(){
 			this.updateView();
+			this.progression();
 			this.timer--;
 			if(this.timer <= 0){
 				this.timer = 0;
@@ -56,7 +57,12 @@ console.log(this.document === document);
 
 		reset : function(){
 			this.timer = this.defaultTimer;
-			this.updateView();
+			this.decrementation();
+		},
+		progression : function(){
+			var width = parseInt(((this.defaultTimer-this.timer)/this.defaultTimer)*100, 10);
+			$('#progress').css('width', width + '%');
+			$('#progress').html(width + '%');
 		},
 	};
 	app.init();
