@@ -1,50 +1,77 @@
-"use strict"
+
 console.log('hello.world');
 console.log(this.document === document);
 
 (function(){
+	"use strict";
 	var app = {
-		defaultTimer : null,
-		timer : null,
+		defaultTimerSeconds : null,
+		timerSeconds : null,
 		intervalID : null,
+		inputH:null,
+		inputMin:null,
+		inputSec: null,
 		init : function(){
 			// this.timer = this.defaultTimer;
 			this.listners();
-			this.userInput();
+			// this.userInput();
 		},
+
 		listners : function(){
 			$("#start").on('click', this.start.bind(this));
 			$("#reset").on('click', this.reset.bind(this));
 			$("#stop").on('click', this.stop.bind(this));
 			$("#save").on('click', this.userInput.bind(this));
-			
 		},
+
 		start : function(){
 			clearInterval(this.intervalID);
 			this.intervalID = setInterval(this.decrementation.bind(this), 1000);
-			
 		},
 
 		decrementation : function(){
 			this.updateView();
 			this.progression();
-			this.timer--;
-			if(this.timer < 0){
+			this.timerSeconds--;
+			if(this.timerSeconds < 0){
 				this.stop();
+				this.timerSeconds = 0;
 			}
 		},
 
 		stop: function(){
 			clearInterval(this.intervalID);
-
 		},
-		userInput : function(){
-			var inputHeures = parseInt($("#inputHeures").val(), 10) || 0;
-			var inputMinutes = parseInt($("#inputMinutes").val(), 10) || 0;
-			var inputSecondes = parseInt($("#inputSecondes").val(), 10) || 10;
-			this.timer = inputHeures*3600 + inputMinutes*60 + inputSecondes
-			this.defaultTimer = this.timer;
 
+		userInput : function(){
+			// var inputHeures = parseInt($("#inputHeures").val(), 10);
+			if(isNaN(app.inputH)){
+				app.inputH = parseInt($("#inputHeures").val(0), 10);
+			}else{
+				app.inputH = parseInt($("#inputHeures").val(), 10);
+			}
+			console.log(app.inputH);
+
+			// var inputMinutes = parseInt($("#inputMinutes").val(), 10);
+			if(isNaN(app.inputMin)){
+				app.inputMin = parseInt($("#inputMinutes").val(0), 10);
+			}else{
+				app.inputMin = parseInt($("#inputMinutes").val(), 10);
+			}
+			console.log(app.inputMin);
+			
+			if(isNaN(app.inputSec)){
+				app.inputSec = parseInt($("#inputSecondes").val(0), 10);
+			}else{
+				app.inputSec = parseInt($("#inputSecondes").val(), 10);
+			console.log(app.inputSec);
+			}
+			
+			this.timerSeconds = parseInt(app.inputH*3600 + app.inputMin*60 + app.inputSec, 10);
+			this.defaultTimerSeconds = this.timerSeconds;
+			console.log(this.timerSeconds);
+
+			
 				if(inputHeures < 10){
 					inputHeures = '0' + inputHeures;
 				}
@@ -54,13 +81,16 @@ console.log(this.document === document);
 				else if(inputSecondes < 10){
 					inputSecondes = '0' + inputSecondes;
 				}
-
 		},
 
 		updateView : function(){
-			var heures = parseInt(this.timer/3600, 10);
-			var minutes = parseInt((this.timer % 3600)/60, 10);
-			var secondes = parseInt(this.timer % 60, 10);
+			// this.userInput();
+			var heures = parseInt(this.timerSeconds/3600, 10);
+			console.log(heures);
+			var minutes = parseInt((this.timerSeconds % 3600)/60, 10);
+			console.log(minutes);
+			var secondes = parseInt(this.timerSeconds % 60, 10);
+			console.log(secondes);
 			
 			if(minutes < 10){
 				minutes = '0'+ minutes; 
@@ -80,10 +110,10 @@ console.log(this.document === document);
 			this.userInput();
 			this.decrementation();
 		},
+
 		progression : function(){
-			console.log(this.timer);
-			var width = parseInt((this.timer*100)/this.defaultTimer, 10);
-			console.log(width);
+			var width = parseInt((this.timerSeconds*100)/this.defaultTimerSeconds, 10);
+			// console.log(width);
 			$('#progress').css('width', width + '%');
 			$('#progress').html(width + '%');
 		},
