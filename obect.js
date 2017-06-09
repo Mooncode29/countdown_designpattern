@@ -21,7 +21,7 @@ console.log(this.document === document);
 			$("#start").on('click', this.start.bind(this));
 			$("#reset").on('click', this.reset.bind(this));
 			$("#stop").on('click', this.stop.bind(this));
-			$("#save").on('click', this.userInput.bind(this));
+			$("#save").on('click', this.getUserInput.bind(this));
 		},
 
 		start : function(){
@@ -43,32 +43,32 @@ console.log(this.document === document);
 			clearInterval(this.intervalID);
 		},
 
-		userInput : function(){
-			// var inputHeures = parseInt($("#inputHeures").val(), 10);
+		getUserInput : function(){
+			
 			if(isNaN(app.inputH)){
-				app.inputH = parseInt($("#inputHeures").val(0), 10);
+				app.inputH = parseInt($("#inputHeures").val(), 10);
 			}else{
 				app.inputH = parseInt($("#inputHeures").val(), 10);
 			}
 			console.log(app.inputH);
 
-			// var inputMinutes = parseInt($("#inputMinutes").val(), 10);
 			if(isNaN(app.inputMin)){
-				app.inputMin = parseInt($("#inputMinutes").val(0), 10);
+				app.inputMin = parseInt($("#inputMinutes").val(), 10);
 			}else{
 				app.inputMin = parseInt($("#inputMinutes").val(), 10);
 			}
 			console.log(app.inputMin);
 			
 			if(isNaN(app.inputSec)){
-				app.inputSec = parseInt($("#inputSecondes").val(0), 10);
+				app.inputSec = parseInt($("#inputSecondes").val(), 10);
 			}else{
 				app.inputSec = parseInt($("#inputSecondes").val(), 10);
 			console.log(app.inputSec);
 			}
-			
+						
 			this.timerSeconds = parseInt(app.inputH*3600 + app.inputMin*60 + app.inputSec, 10);
 			this.defaultTimerSeconds = this.timerSeconds;
+
 			console.log(this.timerSeconds);
 
 			
@@ -84,7 +84,7 @@ console.log(this.document === document);
 		},
 
 		updateView : function(){
-			// this.userInput();
+			
 			var heures = parseInt(this.timerSeconds/3600, 10);
 			console.log(heures);
 			var minutes = parseInt((this.timerSeconds % 3600)/60, 10);
@@ -107,7 +107,7 @@ console.log(this.document === document);
 		},
 		
 		reset : function(){
-			this.userInput();
+			this.getUserInput();
 			this.decrementation();
 		},
 

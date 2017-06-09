@@ -4,24 +4,25 @@
 	<meta charset="UTF-8">
 	<title>Countdown</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-<!-- 	<link rel="stylesheet" href="semantic/semantic.css"> -->
+	<link rel="stylesheet" href="semantic/semantic.css">
 </head>
 <body>
+	<h1 class="ui center aligned green header">Bienvenue sur votre super chronomètre !</h1>
 	<div class="chrono">
 		<span id="heures"></span>
 		<span id="minutes"></span>
 		<span id="secondes"></span>
 	</div>
 	<div id="inputcontainer">
-	<input type="number" id="inputHeures" placeholder="heures" >
-	<input type="number" id="inputMinutes" placeholder="minutes">
-	<input type="number" id="inputSecondes" placeholder="secondes">
+		<input type="number" id="inputHeures" placeholder="heures" >
+		<input type="number" id="inputMinutes" placeholder="minutes">
+		<input type="number" id="inputSecondes" placeholder="secondes">
+		<button class="ui green icon button" id="save">Save</button>
 	</div>
 	<div class="boutons">
-		<button class="btn" id="start">Start</button>
-		<button class="btn" id="stop">Stop</button>
-		<button class="btn" id="reset">Reset</button>
-		<button class="btn" id="save">Save</button>
+		<button class="ui green icon button" id="start"><i class="play icon"></i></button>
+		<button class="ui icon red button" id="stop"><i class="pause icon"></i></button>
+		<button class="ui blue icon button" id="reset"><i class="refresh icon"></i></button>
 	</div>
 	<div id="barre" >
 		<div id="progress"></div>

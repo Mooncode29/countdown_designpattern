@@ -1,29 +1,20 @@
 #inputcontainer {
 	text-align: center;
+	margin-top: 3em;
 }
 
 .chrono {
 	text-align: center;
 	font-size : 50px;
 	color : #0080ff;
-
+	margin-top: 1em;
 }
 
-.btn {
-	
-	width:80px;
-	line-height:30px;
-	text-align:center;
-	vertical-align:middle;
-	background:#52616a;
-	color:white;
-	text-decoration:none;
-
-}
 .boutons{
 	display: flex;
 	justify-content: center;
 	margin-bottom: 5%;
+	margin-top: 3em;
 }
 #barre {
 	width: 450px;
